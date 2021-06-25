@@ -37,9 +37,9 @@ class TokensScanner:
             with open(self.valid_tokens_path, "a", encoding='utf-8') as f:
                 f.write(current_token + "\n")
             self.total_valid_tokens += 1
-            print('\33[32m', f"Válido: {current_token}", '\33[0m')
+            print('\33[32m', f"Valid: {current_token}", '\33[0m')
         else:
-            print('\33[31m', f"Inválido: {current_token}", '\33[0m')
+            print('\33[31m', f"Invalid: {current_token}", '\33[0m')
 
     def _main(self):
         self._restart()
@@ -48,7 +48,7 @@ class TokensScanner:
             threading.Thread(target=self._validate, args=[token]).start()
             time.sleep(0.05)
         time.sleep(1)
-        print(f"Tokens válidos: {self.total_valid_tokens} de {len(self._get_tokens())}")
+        print(f"Valid tokens: {self.total_valid_tokens} of {len(self._get_tokens())}")
 
 
 if __name__ == '__main__':
